@@ -33,4 +33,7 @@ File 15-symbolic_link_permissions creates a script that changes the owner and th
 
 File 16-if_only creates a script that changes the owner of the file hello to betty only if it is owned by the user guillaume.
 
+File 100-Star_Wars creates a script that will play the StarWars IV episode in the terminal.
+
+File 101-man_holberton creates a Holberton man page.
 
