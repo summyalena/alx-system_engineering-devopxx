@@ -14,3 +14,7 @@ Files | Description
 [8-for_ls](./8-for_ls) | Bash script that displays The content of the current directory, In a list format, Where only the part of the name after the first dash is displayed
 [9-to_file_or_not_to_file](./9-to_file_or_not_to_file) | Bash script that gives you information about the holbertonschool file
 [10-fizzbuzz](./10-fizzbuzz) | Bash script that displays numbers from 1 to 100
+[100-read_and_cut](./100-read_and_cut) | Bash script that displays username, user id and home directory for each line of /etc/passwd
+[101-tell_the_story_of_passwd](./101-tell_the_story_of_passwd) | Bash script that displays a story with each line of /etc/passwd
+[102-lets_parse_apache_logs](./102-lets_parse_apache_logs) | Bash scripts that parses an Apache log file and displays the IP and HTTP code for each visitor
+[103-dig_the-data](./103-dig_the-data) | Bash script that parses an Apache log file and displays the IP and HTTP code for each visitor, along with the number of occurences
