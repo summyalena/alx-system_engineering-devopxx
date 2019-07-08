@@ -12,3 +12,5 @@ Files | Description
 [5-beginning_and_end.rb](./5-beginning_and_end.rb) | Ruby script that accepts one argument and pass it to a regular expression matching method that has to match a string that starts with h ends with n and can have any single character in between
 [6-phone_number.rb](./6-phone_number.rb) | Ruby script that accepts one argument and pass it to a regular expression matching method that has to match a 10 digit phone number
 [7-OMG_WHY_ARE_YOU_SHOUTING.rb](./7-OMG_WHY_ARE_YOU_SHOUTING.rb) | Ruby script that accepts one argument and pass it to a regular expression matching method that has to only match capital letters
+[100-textme.rb](./100-textme.rb) | Ruby script that accepts one argument and pass it to a regular expression matching method that parses a logfile with this format: "[SENDER],[RECEIVER],[FLAGS]"
+[101-passed_linkedin_regex_challenge.jpg](./101-passed_linkedin_regex_challenge.jpg) | Screenshot of the solved RegEx puzzle from LinkedIn
