@@ -4,5 +4,5 @@
 apt-get -y update
 apt-get -y install nginx
 ufw allow 'Nginx HTTP'
-sed -i 's/server_name _;/server_name thelaura\.tech;\n\n\        rewrite \^\/redirect_me\$ https\:\/\/www\.youtube\.com\/watch\?v=QH2-TGUlwu4 permanent;/' /etc/nginx/sites-available/default
-systemctl restart nginx
+sed -i 's/server_name _;/server_name thelaura\.tech;\n\n\        rewrite \^\/redirect_me https\:\/\/www\.youtube\.com\/watch\?v=QH2-TGUlwu4 permanent;/' /etc/nginx/sites-available/default
+service start nginx
