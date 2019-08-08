@@ -1,7 +1,6 @@
 # installs and configures nginx
-package { 'Install nginx':
+package { 'nginx':
   ensure => installed,
-  name   => 'nginx',
 }
 
 file_line { 'Insert the redirection line in the config file':
@@ -15,6 +14,11 @@ file_line { 'Insert the redirection line in the config file':
 file { 'Create the default page returned by curl':
   content => 'Holberton School',
   path    => '/var/www/html/index.html',
+}
+
+service { 'restart nginx':
+  ensure  => stopped,
+  require => Package['nginx'],
 }
 
 service { 'nginx':
