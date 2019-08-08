@@ -18,6 +18,10 @@ file_line { 'Insert the redirection line in the config file':
 }
 
 service { 'nginx':
+  ensure  => stopped,
+  require => Package['nginx'],
+}
+service { 'nginx':
   ensure  => running,
   require => Package['nginx'],
 }
