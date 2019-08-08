@@ -14,11 +14,6 @@ file { '/var/www/html/index.html':
   content => 'Holberton School',
 }
 
-service { 'restart nginx':
-  ensure  => stopped,
-  require => Package['nginx'],
-}
-
 service { 'nginx':
   ensure  => running,
   require => Package['nginx'],
