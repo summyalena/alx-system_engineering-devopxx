@@ -4,11 +4,6 @@ package { 'Install nginx':
   name   => 'nginx',
 }
 
-file { 'Create the default page returned by curl':
-  content => 'Holberton School',
-  path    => '/var/www/html/index.html',
-}
-
 file_line { 'Insert the redirection line in the config file':
   ensure   => present,
   path     => '/etc/nginx/sites-available/default',
@@ -17,10 +12,11 @@ file_line { 'Insert the redirection line in the config file':
   multiple => true,
 }
 
-service { 'nginx':
-  ensure  => stopped,
-  require => Package['nginx'],
+file { 'Create the default page returned by curl':
+  content => 'Holberton School',
+  path    => '/var/www/html/index.html',
 }
+
 service { 'nginx':
   ensure  => running,
   require => Package['nginx'],
