@@ -11,9 +11,8 @@ file_line { 'Insert the redirection line in the config file':
   multiple => true,
 }
 
-file { 'Create the default page returned by curl':
+file { '/var/www/html/index.html':
   content => 'Holberton School',
-  path    => '/var/www/html/index.html',
 }
 
 service { 'restart nginx':
