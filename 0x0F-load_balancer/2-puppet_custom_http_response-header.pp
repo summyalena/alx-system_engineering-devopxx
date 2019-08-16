@@ -17,7 +17,7 @@ file_line { 'b':
   line   => 'add_header X-Served-By $hostname;'
 }
 
-file { '/usr/share/nginx/html/index.html':
+file { '/var/www/html/index.html':
   content => 'Holberton School',
 }
 
