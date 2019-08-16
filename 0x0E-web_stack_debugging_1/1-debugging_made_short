@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 # Command to make an nginx server listen on port 80, shorter version
+apt-get -y install nginx
 sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
-service nginx stop
+service nginx start
