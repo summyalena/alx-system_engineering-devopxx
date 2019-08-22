@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# runs nginx as nginx
+sudo service nginx stop
+sudo -u nginx service nginx start
