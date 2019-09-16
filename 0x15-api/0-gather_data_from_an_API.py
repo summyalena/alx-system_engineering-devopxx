@@ -2,10 +2,10 @@
 """For a given employee ID, returns information about
 their TODO list progress"""
 
-if __name__ == "__main__":
+import requests
+import sys
 
-    import requests
-    import sys
+if __name__ == "__main__":
 
     userId = sys.argv[1]
     user = requests.get("https://jsonplaceholder.typicode.com/users/{}"
@@ -26,4 +26,5 @@ if __name__ == "__main__":
     print('Employee {} is done with tasks({}/{})'
           .format(name, completed, totalTasks))
 
-    print('\n'.join(['     ' + task.get('title') for task in todos.json() if task.get('userId') == int(userId) and task.get('completed')]))
+    print('\n'.join(['     ' + task.get('title') for task in todos.json()
+          if task.get('userId') == int(userId) and task.get('completed')]))
