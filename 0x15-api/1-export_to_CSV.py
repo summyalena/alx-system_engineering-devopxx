@@ -7,10 +7,7 @@ if __name__ == "__main__":
     import requests
     import sys
 
-    if sys.argv[1].isdigit():
-        userId = sys.argv[1]
-    else:
-        exit(1)
+    userId = sys.argv[1]
     user = requests.get("https://jsonplaceholder.typicode.com/users/{}"
                         .format(userId))
     name = user.json().get('username')
@@ -19,7 +16,8 @@ if __name__ == "__main__":
     filename = userId + '.csv'
     with open(filename, mode='w') as f:
         writer = csv.writer(f, delimiter=',', quotechar='"',
-                            quoting=csv.QUOTE_NONNUMERIC, lineterminator='\n')
+                            quoting=csv.QUOTE_ALL, lineterminator='\n')
         for task in todos.json():
-            writer.writerow([userId, name, str(task.get('completed')),
-                             task.get('title')])
+            if task.get('userId') == int(userId):
+                writer.writerow([userId, name, str(task.get('completed')),
+                                 task.get('title')])
