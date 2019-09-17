@@ -11,15 +11,15 @@ if __name__ == "__main__":
         userId = sys.argv[1]
     else:
         exit(1)
+    user = requests.get("https://jsonplaceholder.typicode.com/users/{}"
+                        .format(userId))
+    name = user.json().get('username')
+    todos = requests.get('https://jsonplaceholder.typicode.com/todos')
+
     filename = userId + '.csv'
     with open(filename, mode='w') as f:
-        user = requests.get("https://jsonplaceholder.typicode.com/users/{}"
-                            .format(userId))
-        name = user.json().get('username')
-        todos = requests.get('https://jsonplaceholder.typicode.com/todos')
-
         writer = csv.writer(f, delimiter=',', quotechar='"',
-                            quoting=csv.QUOTE_ALL, lineterminator='\n')
+                            quoting=csv.QUOTE_NONNUMERIC, lineterminator='\n')
         for task in todos.json():
             writer.writerow([userId, name, str(task.get('completed')),
                              task.get('title')])
