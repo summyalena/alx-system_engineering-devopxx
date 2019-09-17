@@ -18,5 +18,5 @@ if __name__ == "__main__":
         writer = csv.writer(f, delimiter=',', quotechar='"',
                             quoting=csv.QUOTE_ALL, lineterminator='\n')
         for task in todos.json():
-            writer.writerow([userId, name, task.get('completed'),
+            writer.writerow([userId, name, str(task.get('completed')),
                              task.get('title')])
