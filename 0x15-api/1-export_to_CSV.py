@@ -16,7 +16,7 @@ if __name__ == "__main__":
         todos = requests.get('https://jsonplaceholder.typicode.com/todos')
 
         writer = csv.writer(f, delimiter=',', quotechar='"',
-                            quoting=csv.QUOTE_ALL)
+                            quoting=csv.QUOTE_ALL, lineterminator='\n')
         for task in todos.json():
             writer.writerow([userId, name, task.get('completed'),
                              task.get('title')])
