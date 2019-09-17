@@ -20,7 +20,7 @@ if __name__ == "__main__":
         if task.get('userId') == int(userId):
             taskDict = {"task": task.get('title'),
                         "completed": task.get('completed'),
-                        "username": user.json().get('name')}
+                        "username": user.json().get('username')}
             taskList.append(taskDict)
     todoUser[userId] = taskList
 
