@@ -7,7 +7,10 @@ if __name__ == "__main__":
     import requests
     import sys
 
-    userId = sys.argv[1]
+    if sys.argv[1].isdigit():
+        userId = sys.argv[1]
+    else:
+        exit(1)
     filename = userId + '.csv'
     with open(filename, mode='w') as f:
         user = requests.get("https://jsonplaceholder.typicode.com/users/{}"
