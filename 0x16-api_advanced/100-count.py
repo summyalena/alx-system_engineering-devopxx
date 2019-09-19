@@ -6,7 +6,6 @@ def count_words(subreddit, word_list, word_count={}, after=None):
     """Queries the Reddit API and returns the count of words in
     word_list in the titles of all the hot posts
     of the subreddit"""
-    import collections
     import requests
 
     sub_info = requests.get("https://www.reddit.com/r/{}/hot.json"
@@ -15,7 +14,7 @@ def count_words(subreddit, word_list, word_count={}, after=None):
                             headers={"User-Agent": "My-User-Agent"},
                             allow_redirects=False)
     if sub_info.status_code >= 400:
-        print()
+        return
 
     info = sub_info.json()
 
@@ -23,6 +22,8 @@ def count_words(subreddit, word_list, word_count={}, after=None):
              for child in info
              .get("data")
              .get("children")]
+
+    word_list = list(dict.fromkeys(word_list))
 
     if word_count == {}:
         word_count = {word: 0 for word in word_list}
@@ -35,7 +36,8 @@ def count_words(subreddit, word_list, word_count={}, after=None):
                     word_count[word] += 1
 
     if not info.get("data").get("after"):
-        sorted_counts = sorted(word_count.items(), key=lambda kv: kv[0])
+        sorted_counts = sorted(word_count.items(), key=lambda kv: kv[1])
+        sorted_counts.reverse()
         [print('{}: {}'.format(k, v)) for k, v in sorted_counts if v != 0]
     else:
         return count_words(subreddit, word_list, word_count,
