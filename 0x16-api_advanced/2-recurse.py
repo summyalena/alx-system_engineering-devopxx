@@ -6,10 +6,9 @@ def recurse(subreddit, hot_list=[], count=0, after=None):
     """Queries the Reddit API and returns all hot posts
     of the subreddit"""
     import requests
-    import sys
 
     sub_info = requests.get("https://www.reddit.com/r/{}/hot.json"
-                            .format(sys.argv[1]),
+                            .format(subreddit),
                             params={"count": count, "after": after},
                             headers={"User-Agent": "My-User-Agent"},
                             allow_redirects=False)

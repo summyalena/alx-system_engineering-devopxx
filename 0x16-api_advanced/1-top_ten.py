@@ -6,10 +6,9 @@ def top_ten(subreddit):
     """Queries the Reddit API and returns the top 10 hot posts
     of the subreddit"""
     import requests
-    import sys
 
     sub_info = requests.get("https://www.reddit.com/r/{}/hot.json?limit=10"
-                            .format(sys.argv[1]),
+                            .format(subreddit),
                             headers={"User-Agent": "My-User-Agent"},
                             allow_redirects=False)
     if sub_info.status_code >= 300:
