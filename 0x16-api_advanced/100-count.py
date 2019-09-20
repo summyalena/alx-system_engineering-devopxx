@@ -14,7 +14,7 @@ def count_words(subreddit, word_list, word_count={}, after=None):
                             headers={"User-Agent": "My-User-Agent"},
                             allow_redirects=False)
     if sub_info.status_code != 200:
-        return
+        return None
 
     info = sub_info.json()
 
@@ -23,7 +23,7 @@ def count_words(subreddit, word_list, word_count={}, after=None):
              .get("data")
              .get("children")]
     if not hot_l:
-        return
+        return None
 
     word_list = list(dict.fromkeys(word_list))
 
